@@ -1,0 +1,12 @@
+/*
+1. salary * month = earnings
+2. 각 earning 별로 몇명이 그만큼 벌었는지 계산(5000,2 / 3000,5 / 10000, 1) GROUP BY
+3. earning 중에 가장 큰 값을 가져온다 ORDER BY , LIMIT
+*/
+
+SELECT salary * months AS earnings
+     , COUNT(employee_id)
+FROM employee
+GROUP BY earnings
+ORDER BY MAX(earnings) DESC
+LIMIT 1
